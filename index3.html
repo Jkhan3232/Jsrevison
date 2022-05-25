@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@600&family=Roboto:wght@500&display=swap"
+      rel="stylesheet"
+    />
+
+    <title>Document</title>
+  </head>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      font-size: 62.5%;
+    }
+    body {
+      background-color: rgb(95, 139, 160);
+      font-family: "Roboto", sans-serif;
+    }
+
+    #container {
+      background: #706262;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+      height: 100vh;
+      padding: 2rem;
+    }
+
+    .child {
+      background-color: #0000008f;
+      width: 40em;
+      height: auto;
+      border-radius: 2rem;
+      transition: all 1s;
+      box-shadow: rgba(255, 255, 255, 0.767) 0px 5px 15px;
+    }
+
+    button {
+      margin: 1rem auto 2rem auto;
+      display: flex;
+      color: rgb(0, 0, 0);
+      background-color: rgb(95, 139, 160);
+      padding: 1.5rem;
+      border: none;
+      transition: all 1s;
+
+      border-radius: 50px;
+    }
+    button:hover {
+      transform: scale(1.1);
+    }
+    h2 {
+      text-align: center;
+      margin-top: 1rem;
+      font-weight: 400;
+      font-size: 2rem;
+      text-transform: capitalize;
+      color: whitesmoke;
+    }
+
+    .light {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+  </style>
+  <body>
+    <div id="container">
+      <div class="child">
+        <h2>Test The Light Bulb Press The Button</h2>
+
+        <button onclick="document.getElementById('bulb').src='img.png'">
+          Light On
+        </button>
+        <div class="light">
+          <img src="img2.png" alt="bulb" id="bulb" />
+        </div>
+
+        <button onclick="document.getElementById('bulb').src='img2.png'">
+          Light Off
+        </button>
+      </div>
+    </div>
+  </body>
+</html>

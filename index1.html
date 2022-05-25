@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@600&family=Roboto:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+  </head>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      font-size: 62.5%;
+    }
+    body {
+      background-color: rgb(95, 139, 160);
+      font-family: "Roboto", sans-serif;
+    }
+
+    #container {
+      background: #706262;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+      height: 100vh;
+    }
+
+    .child {
+      background-color: #0000008f;
+      width: 30rem;
+      height: 32rem;
+      border-radius: 2rem;
+      transition: all 1s;
+    }
+
+    .child:hover {
+      transform: scale(1.1);
+      box-shadow: rgba(255, 255, 255, 0.35) 0px 5px 15px;
+    }
+    img {
+      padding: 2rem;
+      width: 100%;
+    }
+
+    .country {
+      text-align: center;
+      color: whitesmoke;
+      margin-top: 0;
+    }
+    .country > h2 {
+      font-size: 2.2rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.2rem;
+    }
+    .country > p {
+      font-size: 1.3rem;
+      font-weight: 400;
+      text-transform: uppercase;
+      padding: 0.2rem;
+    }
+
+    .footer {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      margin: 1rem 3.5rem 0 3.5rem;
+      gap: 1rem;
+      color: whitesmoke;
+      font-size: 1.5rem;
+      text-align: center;
+      font-weight: 500;
+      text-transform: uppercase;
+    }
+  </style>
+  <body>
+    <div id="container"></div>
+
+    <script>
+      const container = document.getElementById("container");
+
+      const request = new XMLHttpRequest();
+      request.open(
+        "GEt",
+        "https://restcountries.com/v2/name/india?fullText=true"
+      );
+      request.send();
+      request.addEventListener("load", function () {
+        const [data] = JSON.parse(this.responseText);
+
+        const htmlhendl = `
+
+        <div class="child">
+        <img src="https://flagcdn.com/in.svg" alt="India-falg" title="India" />
+        <div class="country">
+          <h2>${data.name}</h2>
+          <span></span>
+          <p>capital | ${data.capital}</p>
+        </div>
+
+        <div class="footer">
+          <div>${data.nativeName}</div>|
+          <div>${data.population}</div>|
+          <div>${data.languages[0].name}</div>
+        </div>
+      </div>
+        `;
+
+        container.innerHTML = htmlhendl;
+      });
+    </script>
+  </body>
+</html>

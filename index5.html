@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      font-size: 62.5%;
+    }
+    body {
+      width: 100vw;
+      height: 100vh;
+      background-color: rgb(95, 139, 160);
+      font-family: "Roboto", sans-serif;
+      display: grid;
+      place-items: center;
+    }
+    label {
+      text-align: center;
+      font-size: 2.5rem;
+    }
+
+    #temp {
+      width: 8rem;
+      align-items: center;
+      text-align: center;
+      margin: 2rem auto 2rem auto;
+    }
+    p {
+      font-size: 4rem;
+      color: aliceblue;
+      visibility: visible;
+    }
+  </style>
+  <body>
+    <form id="clac" onsubmit="calculatetemp(); return false ">
+      <label for="temp">Please Enter Temprature Value</label><br />
+      <input type="number" name="temp" id="temp" />
+
+      <select name="te" id="temp_dif">
+        <option value="cel">&deg;Ferhenite</option>
+        <option value="fah">&deg;Celcious</option>
+      </select>
+      <br />
+      <input type="submit" name="temp" />
+      <br />
+      <p id="resolttemp"></p>
+    </form>
+
+    <script>
+      const calculatetemp = () => {
+        const numtemp = document.getElementById("temp").value;
+        const valtemp = document.getElementById("temp_dif");
+        const tempvel = temp_dif.options[valtemp.selectedIndex].value;
+        console.log(tempvel);
+
+        const celse = (cels) => {
+          let celsious = Math.round((cels * 9) / 5 + 32);
+          return celsious;
+        };
+
+        const far = (farh) => {
+          let fehrenite = Math.round((farh - 32) * (5 / 9));
+          return fehrenite;
+        };
+
+        let result;
+
+        if (tempvel == "cel") {
+          result = far(numtemp);
+          document.getElementById(
+            "resolttemp"
+          ).innerHTML = `${result} &deg;Fehrenite`;
+        } else {
+          result = celse(numtemp);
+          document.getElementById(
+            "resolttemp"
+          ).innerHTML = `${result} &deg;Celcious`;
+        }
+      };
+      //   calculatetemp();
+    </script>
+  </body>
+</html>

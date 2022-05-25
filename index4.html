@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@600&family=Roboto:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css"
+      integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <title>Document</title>
+  </head>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    html {
+      font-size: 62.5%;
+    }
+    body {
+      background-color: rgb(95, 139, 160);
+      font-family: "Roboto", sans-serif;
+    }
+
+    #container {
+      background: #706262;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: auto;
+      height: 100vh;
+      padding: 2rem;
+    }
+
+    .child {
+      background-color: #0000008f;
+      width: 30rem;
+      height: 15rem;
+      border-radius: 2rem;
+      transition: all 1s;
+      box-shadow: rgba(255, 255, 255, 0.767) 0px 5px 15px;
+    }
+
+    h2 {
+      margin-top: 1rem;
+      font-weight: 400;
+      font-size: 3.5rem;
+      text-transform: capitalize;
+      color: whitesmoke;
+      padding: 2rem;
+    }
+
+    .fa {
+      font-size: 3.5rem;
+    }
+  </style>
+  <body>
+    <div id="container">
+      <div class="child">
+        <h2>The Temprature is <span id="temp" class="fa"></span></h2>
+      </div>
+    </div>
+    <script>
+      const tempload = () => {
+        let temp = document.getElementById("temp");
+        temp.innerHTML =
+          "<i class='fa fa-thermometer-empty' aria-hidden='true'></i>";
+
+        setTimeout(() => {
+          temp.innerHTML =
+            "<i class='fa fa-thermometer-empty' aria-hidden='true'></i>";
+          temp.style.color = "yellow";
+        }, 1000);
+
+        setTimeout(() => {
+          temp.innerHTML =
+            "<i class='fa fa-thermometer-quarter' aria-hidden='true'></i>";
+          temp.style.color = "yellow-orange";
+        }, 2000);
+
+        setTimeout(() => {
+          temp.innerHTML =
+            "<i class='fa fa-thermometer-half' aria-hidden='true'></i>";
+          temp.style.color = "orange";
+        }, 3000);
+
+        setTimeout(() => {
+          temp.innerHTML =
+            "<i class='fa fa-thermometer-full' aria-hidden='true'></i>";
+          temp.style.color = "red";
+        }, 4000);
+      };
+
+      tempload();
+      setInterval(tempload, 5000);
+    </script>
+  </body>
+</html>
